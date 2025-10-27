@@ -123,7 +123,7 @@ int main()
     std::getline(std::cin, playerA.name);
 
     if (people.count(playerA.name) == 0) {
-        std::cout << "Player is not in Database!" << std::endl;
+        std::cout << playerA.name <<  " is not in Database!" << std::endl;
         std::cout << "Enter Player A points week 1 - 6, if missed game, input x " << std::endl;
 
         std::string scoreCollector;
@@ -151,7 +151,7 @@ int main()
     else if (people.count(playerA.name) == 1) {
         int counter = -1;
 
-        std::cout << "Player was found! " << std::endl;
+        std::cout << playerA.name << " was found! " << std::endl;
 
         std::stringstream ss(people[playerA.name]);
 
@@ -198,7 +198,7 @@ int main()
 
 
     if (people.count(playerB.name) == 0) {
-        std::cout << "Player is not in Database!" << std::endl;
+        std::cout << playerB.name << " is not in Database!" << std::endl;
         std::cout << "Enter Player B points week 1 - 6, if missed game, input x " << std::endl;
 
         std::string scoreCollector;
@@ -226,7 +226,7 @@ int main()
     else if (people.count(playerB.name) == 1) {
         int counter = -1;
 
-        std::cout << "Player was found! " << std::endl;
+        std::cout << playerB.name << " was found! " << std::endl;
 
         std::stringstream ss(people[playerB.name]);
 
