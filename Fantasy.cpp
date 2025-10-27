@@ -2,6 +2,9 @@
 #include <cmath>
 #include "FantasyBack.h"
 #include <fstream>
+#include <map>
+#include <sstream>
+#include <string>
 
 
 // Function implementations
@@ -68,57 +71,187 @@ double roundOff(double value, int places)
     return round(value * pow(10.0, places)) / pow(10.0, places);
 }
 
-// Main function
 
+
+
+// Main function
 int main()
 {
     // declare player structs
     Player playerA;
     Player playerB;
 
-    welcomeMessage();
 
-    // get player A info2
+    // declared map players
+    std::map<std::string, std::string>people;
+
+    //open playersData.txt and read everything into infile
+    std::ifstream infile("playerData.txt");
+
+
+    std::string fileLine;
+
+    if (!infile) {
+        std::cout << "File is not open!";
+    }
+    else {
+        while (std::getline(infile, fileLine)) {
+            std::stringstream ss(fileLine);     // declaring the string stream (NOTHING HAPPENING YET)
+            std::string playerName;
+            std::string playerScore;
+
+
+            if (std::getline(ss, playerName, ',') && std::getline(ss, playerScore)) {
+                people[playerName] = playerScore;
+
+
+            }
+        }
+        infile.close();
+    }
+
+
+    std::ofstream outfile("playerData.txt", std::ios::app);
+
+    welcomeMessage();       // welcome message
+
+
+
+    // get player A info
+
     std::cout << "Enter Player A: ";
     std::getline(std::cin, playerA.name);
-    std::cout << "\nEnter points for Player A from Week 1 - 6, if injured input x " << std::endl;
 
-    for (int i = 0; i < 6; i++)
-    {
-        std::cout << "Week " << (i + 1) << ": ";
+    if (people.count(playerA.name) == 0) {
+        std::cout << "Player is not in Database!" << std::endl;
+        std::cout << "Enter Player A points week 1 - 6, if missed game, input x " << std::endl;
 
-        std::string line;                   // line is the string of the value inputted
-        std::getline(std::cin, line);
-        if (line == "x")
-        {
-            playerA.pointsArr[i] = missed;          // marks which week was missed
+        std::string scoreCollector;
+        scoreCollector = "";
+
+        for (int i = 0; i < 6; i++) {
+            std::cout << "Week " << (i + 1) << ": ";
+            std::string line;
+
+            std::getline(std::cin, line);
+            scoreCollector += line + " ";         // adds line of every week to scoreCollector
+
+            if (line == "x") {
+                playerA.pointsArr[i] = missed;
+            }
+            else {
+                playerA.pointsArr[i] = std::stod(line);
+                // line is turned from a str to a double and stored into array
+            }
         }
-        else
-        {
-            playerA.pointsArr[i] = std::stod(line);     // converts values(strings) into doubles
+        outfile << playerA.name << "," << scoreCollector << std::endl;      // name , score endl
+        people[playerA.name] = scoreCollector;
+
+    }
+    else if (people.count(playerA.name) == 1) {
+        int counter = -1;
+
+        std::cout << "Player was found! " << std::endl;
+
+        std::stringstream ss(people[playerA.name]);
+
+        std::string tempScore;
+        double totalScore = 0;
+
+        while (ss >> tempScore) {
+            // ss reads from map and stores into tempScore
+            counter++;
+            if (tempScore == "x") {
+                playerA.pointsArr[counter] = missed;
+            }
+            else {
+
+                playerA.pointsArr[counter] = std::stod(tempScore);
+            }
         }
     }
+    else {
+         std::cout << "ERROR" << std::endl;
+    }
 
-    // get Player B info
-    std::cout << "\nEnter Player B: ";
+    // for (int i = 0; i < 6; i++)
+    // {
+    //     std::cout << "Week " << (i + 1) << ": ";
+    //
+    //     std::string line;                   // line is the string of the value inputted
+    //     std::getline(std::cin, line);
+    //     if (line == "x")
+    //     {
+    //         playerA.pointsArr[i] = missed;          // marks which week was missed
+    //     }
+    //     else
+    //     {
+    //         playerA.pointsArr[i] = std::stod(line);     // converts values(strings) into doubles
+    //     }
+    // }
+
+
+    // Get Player B info
+
+    std::cout << "Enter Player B: ";
     std::getline(std::cin, playerB.name);
-    std::cout << "\nEnter points for Player B from Week 1 - 6, if injured input x " << std::endl;
 
-    for (int i = 0; i < 6; i++)
-    {
-        std::cout << "Week " << (i + 1) << ": ";
 
-        std::string line;
-        std::getline(std::cin, line);
-        if (line == "x")
-        {
-            playerB.pointsArr[i] = missed;
+    if (people.count(playerB.name) == 0) {
+        std::cout << "Player is not in Database!" << std::endl;
+        std::cout << "Enter Player B points week 1 - 6, if missed game, input x " << std::endl;
+
+        std::string scoreCollector;
+        scoreCollector = "";
+
+        for (int i = 0; i < 6; i++) {
+            std::cout << "Week " << (i + 1) << ": ";
+            std::string line;
+
+            std::getline(std::cin, line);
+            scoreCollector += line + " ";         // adds line of every week to scoreCollector
+
+            if (line == "x") {
+                playerB.pointsArr[i] = missed;
+            }
+            else {
+                playerB.pointsArr[i] = std::stod(line);
+                // line is turned from a str to a double and stored into array
+            }
         }
-        else
-        {
-            playerB.pointsArr[i] = std::stod(line);     // line is string, turns vars from line(strings) to double
+        outfile << playerB.name << "," << scoreCollector << std::endl;      // name , score endl
+        people[playerB.name] = scoreCollector;
+
+    }
+    else if (people.count(playerB.name) == 1) {
+        int counter = -1;
+
+        std::cout << "Player was found! " << std::endl;
+
+        std::stringstream ss(people[playerB.name]);
+
+        std::string tempScore;
+        double totalScore = 0;
+
+        while (ss >> tempScore) {
+            // ss reads from map and stores into tempScore
+            counter++;
+            if (tempScore == "x") {
+                playerB.pointsArr[counter] = missed;
+            }
+            else {
+
+                playerB.pointsArr[counter] = std::stod(tempScore);
+            }
         }
     }
+    else {
+        std::cout << "ERROR" << std::endl;
+    }
+
+
+
+
 
     playerA.averagePoints = calculateAverage(playerA.pointsArr);
     playerB.averagePoints = calculateAverage(playerB.pointsArr);

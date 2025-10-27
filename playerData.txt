@@ -1,1 +1,4 @@
-hello
+Diego Lozano,21 22 19 30 9 34 
+Andrea Zuniga,34 33 45 29 39 40 
+Mike,43 3 24 4 65 3 
+Leo,43 54 12 9 0 7 
