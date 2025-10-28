@@ -17,7 +17,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ac43bb7-e9b2-4c6f-9402-c1533d938b87" name="Changes" comment="added playerData.txt">
+    <list default="true" id="7ac43bb7-e9b2-4c6f-9402-c1533d938b87" name="Changes" comment="Made cout cleaner">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fantasy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Fantasy.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/playerData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/playerData.txt" afterDir="false" />
@@ -33,6 +33,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DLozF&quot;
+  }
+}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/DLozF/Fantasy-App-V2.git&quot;,
@@ -96,6 +102,8 @@
       <workItem from="1760735126574" duration="8886000" />
       <workItem from="1761068459670" duration="1743000" />
       <workItem from="1761110541980" duration="5217000" />
+      <workItem from="1761577119070" duration="1702000" />
+      <workItem from="1761674845477" duration="1158000" />
     </task>
     <task id="LOCAL-00001" summary="added playerData.txt">
       <option name="closed" value="true" />
@@ -121,7 +129,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761203084792</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixed player functions">
+      <option name="closed" value="true" />
+      <created>1761542722791</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761542722791</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Made cout cleaner">
+      <option name="closed" value="true" />
+      <created>1761542876981</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761542876981</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +154,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added playerData.txt" />
     <MESSAGE value="added playerData.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="added playerData.txt" />
+    <MESSAGE value="fixed player functions" />
+    <MESSAGE value="Made cout cleaner" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made cout cleaner" />
   </component>
 </project>

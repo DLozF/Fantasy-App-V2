@@ -95,10 +95,11 @@ int main()
         std::cout << "File is not open!";
     }
     else {
+        // reads the whole database and stores into map before anything happens
         while (std::getline(infile, fileLine)) {
             std::stringstream ss(fileLine);     // declaring the string stream (NOTHING HAPPENING YET)
             std::string playerName;
-            std::string playerScore;
+            std::string playerScore; // ERIK NOTE: Don't declare stuff in a loop!!
 
 
             if (std::getline(ss, playerName, ',') && std::getline(ss, playerScore)) {
@@ -111,7 +112,7 @@ int main()
     }
 
 
-    std::ofstream outfile("playerData.txt", std::ios::app);
+    std::ofstream outfile("playerData.txt", std::ios::app); // append mode so data is saved
 
     welcomeMessage();       // welcome message
 
@@ -121,6 +122,8 @@ int main()
 
     std::cout << "Enter Player A: ";
     std::getline(std::cin, playerA.name);
+
+    // convert playerA.name to lowercase
 
     if (people.count(playerA.name) == 0) {
         std::cout << playerA.name <<  " is not in Database!" << std::endl;
@@ -195,6 +198,8 @@ int main()
 
     std::cout << "Enter Player B: ";
     std::getline(std::cin, playerB.name);
+
+    // convert playerB.name to lowercase
 
 
     if (people.count(playerB.name) == 0) {

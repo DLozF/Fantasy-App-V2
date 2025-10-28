@@ -1,4 +1,6 @@
-Diego Lozano,21 22 19 30 9 34 
-Andrea Zuniga,34 33 45 29 39 40 
+Diego Lozano,21 22 19 30 9 34
 Mike,43 3 24 4 65 3 
 Leo,43 54 12 9 0 7 
+John,31 23 43 42 x x 
+erik,99 99.9 101.1 x x 5 
+Erik,9 9 9 2 x x 
